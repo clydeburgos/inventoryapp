@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="row pb-2">
+      <a href="javascript:void(0)" [routerLink]="['/products/new']" class="btn btn-primary">Create new Product</a>
+    </div>
+    <div class="row">
+      <table class="table table-sm table-striped table-bordered">
+        <thead>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+        </thead>
+        <tbody *ngIf="!isBusy">
+          <tr *ngFor="let item of products | async">
+            <td>{{ item.Id }}</td>
+            <td>{{ item.Name }}</td>
+            <td>{{ item.CategoryName }}</td>
+            <td>{{ item.Description }}</td>
+            <td>$ {{ item.Price }}</td>
+          </tr>
+          <tr *ngIf="products?.length === 0">
+            <td colspan="4">No products found</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="isBusy">
+          Loading data, Please wait ... <i class="glyphicon glyphicon-refresh"></i>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

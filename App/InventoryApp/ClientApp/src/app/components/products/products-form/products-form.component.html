@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="col-md-12 pb-2 text-right">
+      <a href="javascript:void(0)" (click)="save()" class="btn btn-success"> {{ isBusy ? 'Saving....' : 'Save' }}</a> &nbsp;
+      <a href="javascript:void(0)" [routerLink]="['/products']" class="btn btn-secondary">Back</a>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Product Name : </label>
+        <input type="text" class="form-control" placeholder="Product Name" [(ngModel)]="productModel.Name" [disabled]="isBusy" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Category: </label>
+        <select class="form-control" placeholder="Categories"  [(ngModel)]="productModel.CategoryId" [disabled]="isBusy">
+          <option *ngFor="let item of categories" [value]="item.id">{{ item.value }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Description : </label>
+        <textarea class="form-control" placeholder="Description" [(ngModel)]="productModel.Description" [disabled]="isBusy"></textarea>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Price : </label>
+        <input type="number" class="form-control" placeholder="Price" [(ngModel)]="productModel.Price" [disabled]="isBusy" />
+      </div>
+    </div>
+  </div>
+</div>
+
